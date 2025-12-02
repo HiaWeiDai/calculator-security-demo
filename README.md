@@ -1,25 +1,41 @@
-# Security Scan Analysis - [Date]
+## Security Scan Analysis - 2 December 2025
 
 ## DAST Results (ZAP Baseline)
-- Total URLs scanned: X
-- PASS: Y checks
-- WARN-NEW: Z warnings
-- FAIL-NEW: N failures
+- **Total URLs scanned:** 3  
+- **PASS:** 61 checks  
+- **WARN-NEW:** 9 warnings  
+- **FAIL-NEW:** 0 failures  
 
 ### Warning Summary
-[List the warnings found with their codes]
+- Missing `robots.txt` (404 Not Found)  
+- Missing `sitemap.xml` (404 Not Found)  
+- Several warnings related to missing security headers (e.g., `Content-Security-Policy`, `X-Frame-Options`, `X-Content-Type-Options`)  
+
+---
 
 ## SCA Results (Dependency Check)
-- High severity: X
-- Medium severity: Y
-- Low severity: Z
+- **High severity:** 0  
+- **Medium severity:** 0  
+- **Low severity:** 0  
 
 ### Vulnerable Packages
-[List packages with CVEs]
+No known vulnerable packages detected in dependencies.  
 
 ## SAST Results (CodeQL)
-- Total issues: X
-- By type: [breakdown]
+- **Total issues:** 0  
+- **By type:**  
+  - SQL Injection: 0  
+  - XSS / Input Validation: 0  
+  - Insecure Deserialization: 0  
+  - Other: 0  
 
 ## Recommendations
-[Based on findings, what should be prioritized?]
+1. Add standard security headers in Flask responses:
+   - `Content-Security-Policy`
+   - `X-Frame-Options`
+   - `X-Content-Type-Options`
+2. Create a `robots.txt` and `sitemap.xml` to improve site visibility and control.  
+3. Re-run SCA scans after dependency updates to catch new CVEs early.  
+4. Review CodeQL results once available to patch any input validation or injection risks.  
+
+---
